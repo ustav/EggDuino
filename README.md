@@ -25,22 +25,17 @@ Installation:
 
 - Upload Eggduino.ino with Arduino-IDE or similar tool to your Arudino (i.e. Uno)
 - Disable Autoreset on Arduinoboard (there are several ways to do this... Which one does not matter...)
-- Install Inkscape Tools wit Eggbot extension. Detailed instructions: (You yust need to complete Steps 1 and 2)
-http://wiki.evilmadscientist.com/Installing_software
+- Install Inkscape Tools with Eggbot extension. 
 
-- Because of an bug in the Eggbot-extension (Function findEiBotBoards()), the Eggduino cannot be detected by default.
-	Hopefully, the guys will fix this later on. But we can fix it on our own.
-    It is quiete easy:
-	
-        - Go to your Inkscape-Installationfolder and navigate to subfolder .\App\Inkscape\share\extensions
-		- open File "eggbot.py" in texteditor and search for line:
-			"Try any devices which seem to have EBB boards attached"
-                - comment that block with "#" like this:
-                		# Try any devices which seem to have EBB boards attached
-				# for strComPort in eggbot_scan.findEiBotBoards():
-				#	serialPort = self.testSerialPort( strComPort )
-				#	if serialPort:
-				#		self.svgSerialPort = strComPort
-				#		return serialPort
-		- In my version lines 1355-1360
- 
+1. Download and install the latest version of Inkscape (Version 0.91 or newer)
+2. Download and install EggBot_250A.exe from:
+https://github.com/evil-mad/EggBot/releases/tag/v2.5.0
+3. Download my patched ebb_serial.py from:
+
+https://github.com/plex3r/plotink/tree/master/libraries
+
+4. Replace the existing ebb_serial.py in your inkscape extensions folder with the patched version.
+
+Ensure there are no other usb / com devices plugged in apart from your Eggbot.
+
+Start inskscape and it should now be able to connect to your eggbot.
